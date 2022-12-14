@@ -1,10 +1,16 @@
 class Node:
+    """
+    A class to represent a Node in a linked list.
+    """
     def __init__(self, value):
         self.value = value
         self.next = None
 
 
 class LinkedList:
+    """
+    A class to represent a linked list.
+    """
     def __init__(self, value=None):
         if value is not None:
             new_node = Node(value)
@@ -51,18 +57,19 @@ class LinkedList:
             temp = self.head
             self.head = None
             self.tail = None
-            return temp.value
-        # normal case
-        temp = self.head
-        pre = self.head
-        while(temp.next):
-            pre = temp
-            temp = temp.next
-        self.tail = pre
-        self.tail.next = None
+        else:
+            # normal case
+            temp = self.head
+            pre = self.head
+            while temp.next:
+                pre = temp
+                temp = temp.next
+            self.tail = pre
+            self.tail.next = None
         return temp.value
 
     def pop_first(self):
+        """Remove first item from linked list and return it"""
         # edge case: empty linked list
         if len(self) == 0:
             return None
@@ -72,17 +79,15 @@ class LinkedList:
             temp.next = None
             self.head = None
             self.tail = None
-            return temp.value
         # normal case
         else:
             temp = self.head
             temp.next = None
             self.head = self.head.next
-            return temp.value
+        return temp.value
 
     def insert(self, value):
         """Insert item"""
-        pass
 
     def __iter__(self):
         """Allow to iterate over the linked list items"""
@@ -168,19 +173,14 @@ def main():
     linked_list.prepend(2)
     linked_list.prepend(1)
     print('Linked_list:', linked_list)
-    
+
     # test set
     print('\n----- TEST SET -----')
-
 
 
     # test insert
     print('\n----- TEST INSERT -----')
 
 
-
-
-
 if __name__ == '__main__':
     main()
-
