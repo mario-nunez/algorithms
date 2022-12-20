@@ -86,8 +86,67 @@ class LinkedList:
             self.head = self.head.next
         return temp.value
 
-    def insert(self, value):
-        """Insert item"""
+    def get(self, index):
+        """Get item base on index"""
+        if len(self) == 0:
+            return None
+        elif index not in range(len(self)):
+            return None
+        else:
+            temp = self.head
+            for _ in range(index):
+                temp = temp.next
+            return temp
+
+    def set_value(self, index, value):
+        """Set item on a particular index"""
+        temp = self.get(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
+
+    def insert(self, index, value):
+        """Insert item on a particular index"""
+        if index not in range(len(self)):
+            return None
+        if index == 0:
+            return self.prepend(value)
+        if index == len(self):
+            return self.append(value)
+        new_node = Node(value)
+        temp = self.get(index - 1)
+        new_node.next = temp.next
+        temp.next = new_node  
+        return True
+
+    def remove(self, index):
+        """Remove item on a particular index"""
+        if index not in range(len(self)):
+            return None
+        if index == 0:
+            return self.pop_first()
+        if index == len(self):
+            return self.pop()
+        prev = self.get(index - 1)
+        temp = prev.next
+        prev.next = temp.next
+        temp.next = None
+        return temp
+
+    def reverse(self):
+        """Reverse linked list"""
+        sll_length = len(self)
+        temp = self.head
+        self.head = self.tail
+        self.tail = temp
+        before = None
+        after = temp.next
+        for _ in range(sll_length):
+            after = temp.next
+            temp.next = before
+            before = temp
+            temp = after
 
     def __iter__(self):
         """Allow to iterate over the linked list items"""
@@ -174,12 +233,58 @@ def main():
     linked_list.prepend(1)
     print('Linked_list:', linked_list)
 
+    # test get
+    print('\n----- TEST GET -----')
+    linked_list = LinkedList(0)
+    linked_list.append(1)
+    linked_list.append(2)
+    linked_list.append(3)
+
+    print('Get item in index 1:', linked_list.get(1))
+
+
     # test set
     print('\n----- TEST SET -----')
+    linked_list = LinkedList(0)
+    linked_list.append(1)
+    linked_list.append(2)
+    linked_list.append(3)
+
+    print('Set item in index 1:', linked_list.set_value(1, 111))
+    print('Linked_list:', linked_list)
 
 
     # test insert
     print('\n----- TEST INSERT -----')
+    linked_list = LinkedList(0)
+    linked_list.append(2)
+
+    print('Insert item in index 1:', linked_list.insert(1, 1))
+    print('Linked_list:', linked_list)
+
+    # test remove
+    print('\n----- TEST REMOVE -----')
+    linked_list = LinkedList(0)
+    linked_list.append('1_extra')
+    linked_list.append(1)
+    linked_list.append(2)
+    linked_list.append(3)
+
+    print('Linked_list before:', linked_list)
+    print('Remove item in index 1:', linked_list.remove(1))
+    print('Linked_list after:', linked_list)
+
+
+    # test reverse
+    print('\n----- TEST REVERSE -----')
+    linked_list = LinkedList(0)
+    linked_list.append(1)
+    linked_list.append(2)
+    linked_list.append(3)
+
+    print('Linked_list:', linked_list)
+    linked_list.reverse()
+    print('Reversed Linked_list after:', linked_list)
 
 
 if __name__ == '__main__':
