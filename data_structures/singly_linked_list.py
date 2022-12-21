@@ -1,6 +1,6 @@
 class Node:
     """
-    A class to represent a Node in a linked list.
+    A class to represent a Node in a singly linked list.
     """
     def __init__(self, value):
         self.value = value
@@ -9,7 +9,7 @@ class Node:
 
 class LinkedList:
     """
-    A class to represent a linked list.
+    A class to represent a singly linked list.
     """
     def __init__(self, value=None):
         if value is not None:
@@ -57,8 +57,8 @@ class LinkedList:
             temp = self.head
             self.head = None
             self.tail = None
+        # normal case 
         else:
-            # normal case
             temp = self.head
             pre = self.head
             while temp.next:
@@ -174,7 +174,6 @@ def main():
 
     # test append
     print('\n----- TEST APPEND -----')
-
     linked_list = LinkedList()
     linked_list.append(1)
     linked_list.append(2)
