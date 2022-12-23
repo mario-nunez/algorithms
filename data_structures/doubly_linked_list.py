@@ -1,3 +1,5 @@
+"""Implementation of a doubly linked list"""
+
 class Node:
     """
     A class to represent a Node in a doubly linked list.
@@ -63,14 +65,14 @@ class DoublyLinkedList:
         if self.length == 1:
             self.head = None
             self.tail = None
-        # normal case 
+        # normal case
         else:
             self.tail = self.tail.prev
             self.tail.next = None
             temp.prev = None
         self.length -= 1
         return temp
-    
+
     def pop_first(self):
         """Pop item from the beginning"""
         # edge case: empty linked list
@@ -86,7 +88,7 @@ class DoublyLinkedList:
             self.head = self.head.next
             self.head.prev = None
             temp.next = None
-            
+
         self.length -= 1
         return temp
 
@@ -94,7 +96,7 @@ class DoublyLinkedList:
         """Get item base on index"""
         if self.length == 0:
             return None
-        elif index not in range(self.length):
+        if (index < 0) or (index > self.length):
             return None
         temp = self.head
         # optimize code depending on the position of the index to get
@@ -105,7 +107,49 @@ class DoublyLinkedList:
             temp = self.tail
             for _ in range(self.length - 1, index, -1):
                 temp = temp.prev
-        return temp.value
+        return temp
+
+    def set_value(self, index, value):
+        """Set item on a particular index"""
+        temp = self.get(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
+
+    def insert(self, index, value):
+        """Insert item on a particular index"""
+        if (index < 0) or (index > self.length):
+            return False
+        if index == 0:
+            return self.prepend(value)
+        if index == self.length:
+            return self.append(value)
+        new_node = Node(value)
+        before = self.get(index - 1)
+        after = before.next
+        new_node.prev = before
+        new_node.next = after
+        before.next = new_node
+        after.prev = new_node
+        self.length += 1
+        return True
+
+    def remove(self, index):
+        """Remove item on a particular index"""
+        if (index < 0) or (index > self.length):
+            return False
+        if index == 0:
+            return self.pop_first()
+        if index == self.length - 1:
+            return self.pop()
+        temp = self.get(index)
+        temp.next.prev = temp.prev
+        temp.prev.next = temp.next
+        temp.next = None
+        temp.prev = None
+        self.length -= 1
+        return temp
 
     def __iter__(self):
         node = self.head
@@ -125,11 +169,10 @@ class DoublyLinkedList:
             node = node.next
         nodes.append('None')
         return ' <-> '.join(nodes)
-        
 
 
-if __name__ == '__main__':
-
+def main():
+    """Main test function"""
     # test append
     print('\n----- TEST APPEND -----')
     my_doubly_linked_list = DoublyLinkedList()
@@ -180,3 +223,42 @@ if __name__ == '__main__':
     my_doubly_linked_list.prepend(2)
     print(my_doubly_linked_list)
     print('Get item 1:', my_doubly_linked_list.get(1))
+
+    # test set
+    print('\n----- TEST SET -----')
+    my_doubly_linked_list = DoublyLinkedList()
+    my_doubly_linked_list.prepend(0)
+    my_doubly_linked_list.prepend(1)
+    my_doubly_linked_list.prepend(2)
+    print(my_doubly_linked_list)
+    my_doubly_linked_list.set_value(1, '1_new')
+    print(my_doubly_linked_list)
+
+    # test insert
+    print('\n----- TEST INSERT -----')
+    my_doubly_linked_list = DoublyLinkedList()
+    my_doubly_linked_list.append(0)
+    my_doubly_linked_list.append(1)
+    my_doubly_linked_list.append(3)
+    print(my_doubly_linked_list)
+    my_doubly_linked_list.insert(2, 2)
+    print(my_doubly_linked_list)
+
+    # test remove
+    print('\n----- TEST REMOVE -----')
+    my_doubly_linked_list = DoublyLinkedList()
+    my_doubly_linked_list.append(0)
+    my_doubly_linked_list.remove(0)
+    print(my_doubly_linked_list)
+    my_doubly_linked_list.append(0)
+    my_doubly_linked_list.append(1)
+    my_doubly_linked_list.append('1_extra')
+    my_doubly_linked_list.append(2)
+    my_doubly_linked_list.append(3)
+    print(my_doubly_linked_list)
+    my_doubly_linked_list.remove(2)
+    print(my_doubly_linked_list)
+
+
+if __name__ == '__main__':
+    main()

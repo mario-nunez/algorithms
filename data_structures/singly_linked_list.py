@@ -1,3 +1,5 @@
+"""Implementation of a singly linked list"""
+
 class Node:
     """
     A class to represent a Node in a singly linked list.
@@ -57,7 +59,7 @@ class LinkedList:
             temp = self.head
             self.head = None
             self.tail = None
-        # normal case 
+        # normal case
         else:
             temp = self.head
             pre = self.head
@@ -117,7 +119,7 @@ class LinkedList:
         new_node = Node(value)
         temp = self.get(index - 1)
         new_node.next = temp.next
-        temp.next = new_node  
+        temp.next = new_node
         return True
 
     def remove(self, index):
@@ -171,7 +173,7 @@ class LinkedList:
 
 
 def main():
-
+    """Main test function"""
     # test append
     print('\n----- TEST APPEND -----')
     linked_list = LinkedList()
