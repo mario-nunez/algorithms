@@ -30,7 +30,6 @@ class LinkedList:
         if self.head is None:
             self.head = new_node
             self.tail = new_node
-        # normal case
         else:
             self.tail.next = new_node
             self.tail = new_node
@@ -43,7 +42,6 @@ class LinkedList:
         if len(self) == 0:
             self.head = new_node
             self.tail = new_node
-        # normal case
         else:
             new_node.next = self.head
             self.head = new_node
@@ -59,7 +57,6 @@ class LinkedList:
             temp = self.head
             self.head = None
             self.tail = None
-        # normal case
         else:
             temp = self.head
             pre = self.head
@@ -68,7 +65,7 @@ class LinkedList:
                 temp = temp.next
             self.tail = pre
             self.tail.next = None
-        return temp.value
+        return temp
 
     def pop_first(self):
         """Remove first item from linked list and return it"""
@@ -81,24 +78,24 @@ class LinkedList:
             temp.next = None
             self.head = None
             self.tail = None
-        # normal case
         else:
             temp = self.head
             temp.next = None
             self.head = self.head.next
-        return temp.value
+        return temp
 
     def get(self, index):
         """Get item base on index"""
+        # edge case: empty linked list
         if len(self) == 0:
             return None
-        elif index not in range(len(self)):
+        # edge case: index out of range
+        if (index < 0) or (index >= len(self)):
             return None
-        else:
-            temp = self.head
-            for _ in range(index):
-                temp = temp.next
-            return temp
+        temp = self.head
+        for _ in range(index):
+            temp = temp.next
+        return temp
 
     def set_value(self, index, value):
         """Set item on a particular index"""
@@ -110,10 +107,13 @@ class LinkedList:
 
     def insert(self, index, value):
         """Insert item on a particular index"""
-        if index not in range(len(self)):
+        # edge case: index out of range
+        if (index < 0) or (index > len(self)):
             return None
+        # edge case: insert at the beginning
         if index == 0:
             return self.prepend(value)
+        # edge case: insert at the end
         if index == len(self):
             return self.append(value)
         new_node = Node(value)
@@ -124,11 +124,14 @@ class LinkedList:
 
     def remove(self, index):
         """Remove item on a particular index"""
-        if index not in range(len(self)):
+        # edge case: index out of range
+        if (index < 0) or (index >= len(self)):
             return None
+        # edge case: remove from the beginning
         if index == 0:
             return self.pop_first()
-        if index == len(self):
+        # edge case: remove from the end
+        if index == len(self) - 1:
             return self.pop()
         prev = self.get(index - 1)
         temp = prev.next

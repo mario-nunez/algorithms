@@ -33,7 +33,6 @@ class DoublyLinkedList:
         if self.head is None:
             self.head = new_node
             self.tail = new_node
-        # normal case
         else:
             new_node.prev = self.tail
             self.tail.next = new_node
@@ -65,7 +64,6 @@ class DoublyLinkedList:
         if self.length == 1:
             self.head = None
             self.tail = None
-        # normal case
         else:
             self.tail = self.tail.prev
             self.tail.next = None
@@ -83,7 +81,6 @@ class DoublyLinkedList:
         if self.length == 1:
             self.head = None
             self.tail = None
-        # normal case:
         else:
             self.head = self.head.next
             self.head.prev = None
@@ -94,9 +91,11 @@ class DoublyLinkedList:
 
     def get(self, index):
         """Get item base on index"""
+        # edge case: empty linked list
         if self.length == 0:
             return None
-        if (index < 0) or (index > self.length):
+        # edge case: index out of range
+        if (index < 0) or (index >= self.length):
             return None
         temp = self.head
         # optimize code depending on the position of the index to get
@@ -119,10 +118,13 @@ class DoublyLinkedList:
 
     def insert(self, index, value):
         """Insert item on a particular index"""
+        # edge case: index out of range
         if (index < 0) or (index > self.length):
             return False
+        # edge case: insert at the beginning
         if index == 0:
             return self.prepend(value)
+        # edge case: insert at the end
         if index == self.length:
             return self.append(value)
         new_node = Node(value)
@@ -137,10 +139,13 @@ class DoublyLinkedList:
 
     def remove(self, index):
         """Remove item on a particular index"""
-        if (index < 0) or (index > self.length):
+        # edge case: index out of range
+        if (index < 0) or (index >= self.length):
             return False
+        # edge case: remove from the beginning
         if index == 0:
             return self.pop_first()
+        # edge case: remove from the end
         if index == self.length - 1:
             return self.pop()
         temp = self.get(index)
@@ -152,6 +157,7 @@ class DoublyLinkedList:
         return temp
 
     def __iter__(self):
+        """Allow to iterate over the linked list items"""
         node = self.head
         while node is not None:
             yield node.value
@@ -219,10 +225,11 @@ def main():
     my_doubly_linked_list = DoublyLinkedList()
     print('Get item 1:', my_doubly_linked_list.get(1))
     my_doubly_linked_list.prepend(0)
-    my_doubly_linked_list.prepend(1)
-    my_doubly_linked_list.prepend(2)
+    my_doubly_linked_list.append(1)
+    my_doubly_linked_list.append(2)
     print(my_doubly_linked_list)
-    print('Get item 1:', my_doubly_linked_list.get(1))
+    print('Get item 1:', my_doubly_linked_list.get(1).value)
+    print('Get last item:', my_doubly_linked_list.get(3))
 
     # test set
     print('\n----- TEST SET -----')
