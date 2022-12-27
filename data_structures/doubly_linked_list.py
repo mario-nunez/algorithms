@@ -9,19 +9,40 @@ class Node:
         self.next = None
         self.prev = None
 
+    def __repr__(self):
+        """Print Node"""
+        return (f"Node(value={self.value}, "
+                f"prev={self.prev.value if self.prev is not None else None}, "
+                f"next={self.next.value if self.next is not None else None})")
+
 
 class DoublyLinkedList:
     """
     A class to represent a doubly linked list.
     """
     def __init__(self, value=None):
-        if value is not None:
+        # allow initialization of the doubly linked list based on a list
+        if isinstance(value, list):
+            self.length = len(value)
+            node = Node(value.pop(0))
+            self.head = node
+            prev_node = node.prev
+            for item in value:
+                node.next = Node(item)
+                node.prev = prev_node
+                prev_node = node
+                node = node.next
+                node.prev = node.next
+            node.prev = prev_node
+            self.tail = node
+        # allow initialization of the doubly linked list with a value
+        elif value is not None:
             new_node = Node(value)
             self.head = new_node
             self.tail = new_node
             self.length = 1
+        # allow empty initialization of the doubly linked list
         else:
-            # allow empty initialization of the doubly linked list
             self.head = None
             self.tail = None
             self.length = 0
@@ -85,7 +106,6 @@ class DoublyLinkedList:
             self.head = self.head.next
             self.head.prev = None
             temp.next = None
-
         self.length -= 1
         return temp
 
@@ -160,7 +180,7 @@ class DoublyLinkedList:
         """Allow to iterate over the linked list items"""
         node = self.head
         while node is not None:
-            yield node.value
+            yield node
             node = node.next
 
     def __len__(self):
@@ -179,6 +199,16 @@ class DoublyLinkedList:
 
 def main():
     """Main test function"""
+    # test initialization
+    print('\n----- TEST INITIALIZATION -----')
+    values_list = [11, 22, 33]
+    my_doubly_linked_list = DoublyLinkedList(values_list)
+    print('Linked_list:', my_doubly_linked_list)
+    print('Linked_list HEAD:', my_doubly_linked_list.head)
+    print('Linked_list TAIL:', my_doubly_linked_list.tail)
+    for i in my_doubly_linked_list:
+        print('Node:', i)
+
     # test append
     print('\n----- TEST APPEND -----')
     my_doubly_linked_list = DoublyLinkedList()
@@ -187,6 +217,8 @@ def main():
     my_doubly_linked_list.append(2)
     my_doubly_linked_list.append(3)
     print(my_doubly_linked_list)
+    for i in my_doubly_linked_list:
+        print('Node:', i)
 
     # test pop
     print('\n----- TEST POP -----')
