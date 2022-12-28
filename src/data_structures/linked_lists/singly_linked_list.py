@@ -196,129 +196,15 @@ class LinkedList:
 
 def main():
     """Main test function"""
-    # test initialization
-    print('\n----- TEST INITIALIZATION -----')
-    values_list = [11, 22, 33]
-    linked_list = LinkedList(values_list)
-    print('Linked_list:', linked_list)
-    print('Linked_list HEAD:', linked_list.head)
-    print('Linked_list TAIL:', linked_list.tail)
-
     # test append
-    print('\n----- TEST APPEND -----')
-    linked_list = LinkedList()
-    linked_list.append(1)
-    linked_list.append(2)
-    linked_list.append(3)
+    expected_result = [0, 1, 2]
+    dll = LinkedList()
+    dll.append(0)
+    dll.append(1)
+    dll.append(2)
+    result = [node.value for node in dll]
 
-    print('Linked_list:', linked_list)
-    print('Linked list head:', linked_list.head.value)
-    print('Linked list length:', len(linked_list))
-    for i in linked_list:
-        print('Node:', i)
-
-
-    # test pop
-    print('\n----- TEST POP -----')
-
-    linked_list = LinkedList(1)
-    linked_list.append(2)
-
-    print('Linked_list:', linked_list)
-
-    print('pop:', linked_list.pop())
-    print('Linked_list:', linked_list)
-
-    print('pop:', linked_list.pop())
-    print('Linked_list:', linked_list)
-
-    print('pop:', linked_list.pop())
-    print('Linked_list:', linked_list)
-
-    # test pop_first
-    print('\n----- TEST POP FIRST -----')
-
-    linked_list = LinkedList(1)
-    linked_list.append(2)
-    linked_list.append(3)
-
-    print('Linked_list:', linked_list)
-
-    print('pop:', linked_list.pop_first())
-    print('Linked_list:', linked_list)
-
-    print('pop:', linked_list.pop_first())
-    print('Linked_list:', linked_list)
-
-    print('pop:', linked_list.pop_first())
-    print('Linked_list:', linked_list)
-
-    print('pop:', linked_list.pop_first())
-    print('Linked_list:', linked_list)
-
-    # test prepend
-    print('\n----- TEST PREPEND -----')
-
-    linked_list = LinkedList()
-    print('Linked_list:', linked_list)
-    linked_list.prepend(3)
-    linked_list.append(4)
-    linked_list.prepend(2)
-    linked_list.prepend(1)
-    print('Linked_list:', linked_list)
-
-    # test get
-    print('\n----- TEST GET -----')
-    linked_list = LinkedList(0)
-    linked_list.append(1)
-    linked_list.append(2)
-    linked_list.append(3)
-
-    print('Get item in index 1:', linked_list.get(1))
-
-
-    # test set
-    print('\n----- TEST SET -----')
-    linked_list = LinkedList(0)
-    linked_list.append(1)
-    linked_list.append(2)
-    linked_list.append(3)
-
-    print('Set item in index 1:', linked_list.set_value(1, '1_new'))
-    print('Linked_list:', linked_list)
-
-
-    # test insert
-    print('\n----- TEST INSERT -----')
-    linked_list = LinkedList(0)
-    linked_list.append(2)
-
-    print('Insert item in index 1:', linked_list.insert(1, 1))
-    print('Linked_list:', linked_list)
-
-    # test remove
-    print('\n----- TEST REMOVE -----')
-    linked_list = LinkedList(0)
-    linked_list.append('1_extra')
-    linked_list.append(1)
-    linked_list.append(2)
-    linked_list.append(3)
-
-    print('Linked_list before:', linked_list)
-    print('Remove item in index 1:', linked_list.remove(1))
-    print('Linked_list after:', linked_list)
-
-
-    # test reverse
-    print('\n----- TEST REVERSE -----')
-    linked_list = LinkedList(0)
-    linked_list.append(1)
-    linked_list.append(2)
-    linked_list.append(3)
-
-    print('Linked_list:', linked_list)
-    linked_list.reverse()
-    print('Reversed Linked_list after:', linked_list)
+    assert result == expected_result
 
 
 if __name__ == '__main__':
