@@ -1,5 +1,5 @@
 Metadata-Version: 2.1
-Name: DSA
+Name: dsa
 Version: 0.0.0
 Summary: test data structures and algorithms
 Author: Mario Nuñez Callejo
@@ -17,3 +17,4 @@ Classifier: Programming Language :: Python :: 3.8
 Classifier: Programming Language :: Python :: 3.9
 Requires-Python: >=3.6
 Provides-Extra: testing
+License-File: LICENSE

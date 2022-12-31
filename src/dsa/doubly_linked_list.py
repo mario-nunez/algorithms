@@ -1,5 +1,6 @@
 """Implementation of a doubly linked list"""
 
+
 class Node:
     """
     A class to represent a Node in a doubly linked list.

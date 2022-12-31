@@ -1,9 +1,11 @@
-from data_structures.linked_lists.doubly_linked_list import DoublyLinkedList
+"""Test doubly linked implementation"""
+import pytest
+
+from dsa.doubly_linked_list import DoublyLinkedList
 
 
-def test_doubly_linked_list():
-    """Test doubly linked list methods"""
-    # test initialization
+def test_doubly_linked_list_initialization():
+    """Test doubly linked list initializacion"""
     expected_result_empty = []
     expected_result_single = [0]
     expected_result_list = [0, 1, 2]
@@ -18,12 +20,32 @@ def test_doubly_linked_list():
     assert result_single == expected_result_single
     assert result_list == expected_result_list
 
-    # test append
+
+@pytest.mark.xfail
+def test_doubly_linked_list_wrong_initialization():
+    """Test doubly linked list wrong initializacion"""
+    DoublyLinkedList(1, 2, 3)
+
+
+def test_doubly_linked_list_append():
+    """Test doubly linked list append"""
     expected_result = [0, 1, 2]
     dll = DoublyLinkedList()
     dll.append(0)
     dll.append(1)
     dll.append(2)
+    result = [node.value for node in dll]
+
+    assert result == expected_result
+
+
+def test_doubly_linked_list_prepend(empty_dll):
+    """Test doubly linked list prepend"""
+    expected_result = [2, 1, 0]
+    dll = empty_dll
+    dll.prepend(0)
+    dll.prepend(1)
+    dll.prepend(2)
     result = [node.value for node in dll]
 
     assert result == expected_result

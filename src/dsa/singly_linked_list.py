@@ -1,5 +1,6 @@
 """Implementation of a singly linked list"""
 
+
 class Node:
     """
     A class to represent a Node in a singly linked list.
@@ -12,6 +13,7 @@ class Node:
         """Print Node"""
         return (f"Node(value={self.value}, "
                 f"next={self.next.value if self.next is not None else None})")
+
 
 class LinkedList:
     """
