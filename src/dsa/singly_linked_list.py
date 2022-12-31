@@ -194,20 +194,3 @@ class LinkedList:
             node = node.next
         nodes.append("None")
         return " -> ".join(nodes)
-
-
-def main():
-    """Main test function"""
-    # test append
-    expected_result = [0, 1, 2]
-    dll = LinkedList()
-    dll.append(0)
-    dll.append(1)
-    dll.append(2)
-    result = [node.value for node in dll]
-
-    assert result == expected_result
-
-
-if __name__ == '__main__':
-    main()
