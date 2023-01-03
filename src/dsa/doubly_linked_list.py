@@ -189,6 +189,7 @@ class DoublyLinkedList:
         return len(tuple(iter(self)))
 
     def __repr__(self):
+        """Print doubly linked list"""
         node = self.head
         nodes = []
         while node is not None:
