@@ -129,7 +129,7 @@ class LinkedList:
         """Insert item on a particular index"""
         # edge case: index out of range
         if (index < 0) or (index > self.length):
-            return None
+            return False
         # edge case: insert at the beginning
         if index == 0:
             return self.prepend(value)
@@ -147,7 +147,7 @@ class LinkedList:
         """Remove item on a particular index"""
         # edge case: index out of range
         if (index < 0) or (index >= self.length):
-            return None
+            return False
         # edge case: remove from the beginning
         if index == 0:
             return self.pop_first()
@@ -163,6 +163,9 @@ class LinkedList:
 
     def reverse(self):
         """Reverse linked list"""
+        # edge case: empty linked list
+        if self.length == 0:
+            return
         temp = self.head
         self.head = self.tail
         self.tail = temp

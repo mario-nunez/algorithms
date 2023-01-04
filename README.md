@@ -8,3 +8,10 @@
 ![Tests](https://github.com/mario-nunez/algorithms/actions/workflows/tests.yml/badge.svg)
 
 This repository is my personal approach of the most common DSA problems.
+
+### Data Structures
+- Singly linked list
+- Doubly linked list
+
+
+### Algorithms
