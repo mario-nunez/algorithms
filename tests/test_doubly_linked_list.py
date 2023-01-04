@@ -31,7 +31,6 @@ def test_doubly_linked_list_initialization():
             "next": None
         }
     }
-
     dll_empty = DoublyLinkedList()
     dll_single_value = DoublyLinkedList(0)
     dll_list_values = DoublyLinkedList([0, 1, 2])
