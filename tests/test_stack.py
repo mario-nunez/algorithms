@@ -1,4 +1,3 @@
-"""Test singly linked implementation"""
 import pytest
 
 from dsa.stack import Stack
@@ -8,13 +7,19 @@ def test_stack_initialization():
     """Test stack initializacion"""
     expected_result_len_stack_empty = 0
     expected_result_len_stack = 1
+    expected_result_empty_stack_top = None
+    expected_result_stack_top = 0
     stack_empty = Stack()
     stack = Stack(0)
     result_len_stack_empty = stack_empty.height
     result_len_stack = stack.height
+    result_empty_stack_top = stack_empty.top
+    result_stack_top = stack.top.value
 
     assert result_len_stack_empty == expected_result_len_stack_empty
     assert result_len_stack == expected_result_len_stack
+    assert result_empty_stack_top == expected_result_empty_stack_top
+    assert result_stack_top == expected_result_stack_top
 
 
 @pytest.mark.xfail
@@ -98,8 +103,8 @@ def test_stack_size():
 
 def test_stack_repr():
     """Test stack repr special method"""
-    expected_result_stack_empty_repr = ""
-    expected_result_stack_repr = "1 -> 0"
+    expected_result_stack_empty_repr = "(top)  (bottom)"
+    expected_result_stack_repr = "(top) 1 - 0 (bottom)"
     stack_empty = Stack()
     stack = Stack(0)
     stack.push(1)

@@ -3,7 +3,7 @@
 
 class Node:
     """
-    A class to represent a Node in a stack.
+    A class to represent a Node in a stack
     """
     def __init__(self, value):
         self.value = value
@@ -17,7 +17,7 @@ class Node:
 
 class Stack:
     """
-    A class to represent a stack.
+    A class to represent a stack
     """
     def __init__(self, value=None):
         # allow initialization of the stack with a value
@@ -69,4 +69,4 @@ class Stack:
         while temp is not None:
             stack_items.append(str(temp.value))
             temp = temp.next
-        return " -> ".join(stack_items)
+        return "(top) " + " - ".join(stack_items) + " (bottom)"

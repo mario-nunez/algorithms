@@ -1,4 +1,3 @@
-"""Test singly linked implementation"""
 import pytest
 
 from dsa.singly_linked_list import LinkedList

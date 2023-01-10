@@ -1,4 +1,3 @@
-"""Test doubly linked implementation"""
 import pytest
 
 from dsa.doubly_linked_list import DoublyLinkedList
