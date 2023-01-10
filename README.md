@@ -12,6 +12,8 @@ This repository is my personal approach of the most common DSA problems.
 ### Data Structures
 - Singly linked list
 - Doubly linked list
+- Stack
+- Queue
 
 
 ### Algorithms
