@@ -10,7 +10,7 @@ OPS = {
 }
 
 
-def selection_sort(lst, reverse=False):
+def selection_sort(lst: list, reverse: bool=False):
     """Sort a list using selection sort algorithm"""
     if reverse is True:
         op_order = ">"
@@ -27,14 +27,3 @@ def selection_sort(lst, reverse=False):
             lst[i] = lst[min_index]
             lst[min_index] = temp
     return lst
-
-
-
-if __name__ == '__main__':
-    print('\n##### TEST SELECTION SORT #####')
-    list = [4, 2, 6, 5, 1, 3, 0, 37, 15, 23, 5, 4]
-    print('Before list sort:', list)
-    list2 = selection_sort(list)
-    print('AFTER asc sort:  ', list2)
-    list2 = selection_sort(list, True)
-    print('AFTER desc sort: ', list2)

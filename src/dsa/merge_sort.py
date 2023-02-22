@@ -36,7 +36,7 @@ def merge(lst1, lst2, reverse):
         j += 1
     return combined
 
-def merge_sort(lst, reverse=False):
+def merge_sort(lst: list, reverse: bool=False):
     """Sort a list using merge sort algorithm"""
     # base case
     if len(lst) == 1:
@@ -45,14 +45,3 @@ def merge_sort(lst, reverse=False):
     left = merge_sort(lst[:mid_index], reverse)
     right = merge_sort(lst[mid_index:], reverse)
     return merge(left, right, reverse)
-
-
-if __name__ == '__main__':
-    
-    print('\n##### TEST MERGE SORT #####')
-    list = [4, 2, 6, 5, 1, 3, 0, 37, 15, 23, 5, 4]
-    print('Before list sort:', list)
-    sorted_list = merge_sort(list)
-    print('AFTER asc sort:  ', sorted_list)
-    sorted_list = merge_sort(list, True)
-    print('AFTER desc sort: ', sorted_list)

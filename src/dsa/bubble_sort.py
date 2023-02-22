@@ -10,7 +10,7 @@ OPS = {
 }
 
 
-def bubble_sort(lst, reverse=False):
+def bubble_sort(lst: list, reverse: bool=False):
     """Sort a list using bubble sort algorithm"""
     if reverse is True:
         op_order = "<"
@@ -31,13 +31,3 @@ def bubble_sort(lst, reverse=False):
         if swaped is False:
             break
     return lst
-
-
-if __name__ == '__main__':
-    print('\n##### TEST BUBBLE SORT #####')
-    list = [4, 2, 6, 5, 1, 3, 0, 37, 15, 23, 5, 4]
-    print('Before list sort:', list)
-    list2 = bubble_sort(list)
-    print('AFTER asc sort:  ', list2)
-    list2 = bubble_sort(list, True)
-    print('AFTER desc sort: ', list2)

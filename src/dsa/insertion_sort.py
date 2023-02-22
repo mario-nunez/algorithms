@@ -10,7 +10,7 @@ OPS = {
 }
 
 
-def insertion_sort(lst, reverse=False):
+def insertion_sort(lst: list, reverse: bool=False):
     """Sort a list using insertion sort algorithm"""
     if reverse is True:
         op_order = ">"
@@ -25,13 +25,3 @@ def insertion_sort(lst, reverse=False):
             lst[j] = temp
             j -= 1
     return lst
-
-
-if __name__ == '__main__':
-    print('\n##### TEST INSERTION SORT #####')
-    list = [4, 2, 6, 5, 1, 3, 0, 37, 15, 23, 5, 4]
-    print('Before list sort:', list)
-    list2 = insertion_sort(list)
-    print('AFTER asc sort:  ', list2)
-    list2 = insertion_sort(list, True)
-    print('AFTER desc sort: ', list2)

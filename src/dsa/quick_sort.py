@@ -29,14 +29,6 @@ def quick_sort_helper(lst, first_idx, last_idx):
         quick_sort_helper(lst, pivot_idx+1, last_idx)
     return lst
 
-def quick_sort(lst):
+def quick_sort(lst: list):
     """Sort a list using quick sort algorithm"""
     return quick_sort_helper(lst, 0, len(lst)-1)
-
-
-if __name__ == '__main__':
-    print('\n##### TEST QUICK SORT #####')
-    list = [4, 2, 6, 5, 1, 3, 0, 37, 15, 23, 5, 4]
-    print('Before list sort:', list)
-    sorted_list = quick_sort(list)
-    print('AFTER asc sort:  ', sorted_list)
