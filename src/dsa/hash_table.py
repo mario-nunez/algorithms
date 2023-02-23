@@ -57,38 +57,3 @@ class HashTable:
         """Print hash table"""
         for k, v in enumerate(self.data_map):
             print(k, ":", v)
-
-
-if __name__ == '__main__':
-    my_hash_table = HashTable()
-
-    print('keys:',my_hash_table.keys())
-
-    # test set
-    my_hash_table.set_item('pencil', 50)
-    my_hash_table.set_item('rubber', 10)
-    my_hash_table.set_item('rule', 90)
-
-    my_hash_table.print_hash_table()
-
-    # test get
-    print('Item:', my_hash_table.get_item('pencil'))
-    print('Item:', my_hash_table.get_item('rubber'))
-    print('Item:', my_hash_table.get_item('rule'))
-    print('Item:', my_hash_table.get_item('pen'))
-
-    # test keys
-    print('keys:',my_hash_table.keys())
-
-
-    # test delete
-    my_hash_table.print_hash_table()
-    print('Item removed:', my_hash_table.delete_item('pencil'))
-    print('Item removed:', my_hash_table.delete_item('sharpener'))
-    print('Item removed:', my_hash_table.delete_item('rubber'))
-    print('Item removed:', my_hash_table.delete_item('rule'))
-    my_hash_table.print_hash_table()
-
-    
-
-    
