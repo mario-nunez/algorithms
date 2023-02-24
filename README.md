@@ -14,6 +14,13 @@ This repository is my personal approach of the most common DSA problems.
 - Doubly linked list
 - Stack
 - Queue
-
+- Hash table
+- Graph
+- Binary Search Tree
 
 ### Algorithms
+- Selection sort
+- Bubble sort
+- Insertion sort
+- Merge sort
+- Quick sort
