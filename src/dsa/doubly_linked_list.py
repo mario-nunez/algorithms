@@ -3,7 +3,7 @@
 
 class Node:
     """
-    A class to represent a Node in a doubly linked list.
+    A class to represent a Node in a doubly linked list
     """
     def __init__(self, value):
         self.value = value
@@ -19,7 +19,7 @@ class Node:
 
 class DoublyLinkedList:
     """
-    A class to represent a doubly linked list.
+    A class to represent a doubly linked list
     """
     def __init__(self, value=None):
         # allow initialization of the doubly linked list based on a list
