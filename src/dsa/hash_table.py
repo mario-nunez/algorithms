@@ -5,7 +5,7 @@ class HashTable:
     """
     A class to represent a Node in a hash table
     """
-    def __init__(self, size = 7):
+    def __init__(self, size=7):
         self.data_map = [None] * size
 
     def __hash(self, key):
@@ -48,7 +48,7 @@ class HashTable:
         """Get all the keys of the hash table"""
         all_keys = []
         for ht_address in self.data_map:
-            if ht_address is not None: 
+            if ht_address is not None:
                 for i in ht_address:
                     all_keys.append(i[0])
         return all_keys

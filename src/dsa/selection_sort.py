@@ -10,7 +10,7 @@ OPS = {
 }
 
 
-def selection_sort(lst: list, reverse: bool=False):
+def selection_sort(lst: list, reverse: bool = False):
     """Sort a list using selection sort algorithm"""
     if reverse is True:
         op_order = ">"

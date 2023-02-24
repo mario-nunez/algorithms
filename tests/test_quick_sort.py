@@ -14,10 +14,10 @@ def test_quick_sort_asc():
 @pytest.mark.xfail
 def test_quick_sort_wrong_list():
     """Test quick sort method with wrong list"""
-    result = quick_sort([1, 'hi'])
+    quick_sort([1, 'hi'])
 
 
 @pytest.mark.xfail
 def test_quick_sort_wrong_call():
     """Test quick sort method with wrong call"""
-    result = quick_sort(1)
+    quick_sort(1)

@@ -22,10 +22,10 @@ def test_selection_sort_desc():
 @pytest.mark.xfail
 def test_selection_sort_wrong_list():
     """Test selection sort method with wrong list"""
-    result = selection_sort([1, 'hi'])
+    selection_sort([1, 'hi'])
 
 
 @pytest.mark.xfail
 def test_selection_sort_wrong_call():
     """Test selection sort method with wrong call"""
-    result = selection_sort(1)
+    selection_sort(1)

@@ -22,10 +22,10 @@ def test_merge_sort_desc():
 @pytest.mark.xfail
 def test_merge_sort_wrong_list():
     """Test merge sort method with wrong list"""
-    result = merge_sort([1, 'hi'])
+    merge_sort([1, 'hi'])
 
 
 @pytest.mark.xfail
 def test_merge_sort_wrong_call():
     """Test merge sort method with wrong call"""
-    result = merge_sort(1)
+    merge_sort(1)

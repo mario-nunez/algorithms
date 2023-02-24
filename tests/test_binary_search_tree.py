@@ -244,7 +244,7 @@ def test_bst_delete():
     my_tree.r_insert(12)
     my_tree.r_insert(20)
 
-    """
+    r"""
     Tree before delete
 
           2
@@ -260,16 +260,16 @@ def test_bst_delete():
     my_tree.delete_node(10)
 
     result_test_root = my_tree.root.value
-    result_test_root_left = my_tree.root.left.value # 1
-    result_test_root_right = my_tree.root.right.value # 12
-    result_test_right_left = my_tree.root.right.left.value # 8
-    result_test_right_right = my_tree.root.right.right.value # 16
-    result_test_right_left_left = my_tree.root.right.left.left.value # 7
-    result_test_right_left_right = my_tree.root.right.left.right.value # 9
-    result_test_right_right_left = my_tree.root.right.right.left # NONE
-    result_test_right_right_right = my_tree.root.right.right.right.value # 20
+    result_test_root_left = my_tree.root.left.value
+    result_test_root_right = my_tree.root.right.value
+    result_test_right_left = my_tree.root.right.left.value
+    result_test_right_right = my_tree.root.right.right.value
+    result_test_right_left_left = my_tree.root.right.left.left.value
+    result_test_right_left_right = my_tree.root.right.left.right.value
+    result_test_right_right_left = my_tree.root.right.right.left
+    result_test_right_right_right = my_tree.root.right.right.right.value
 
-    """
+    r"""
     Tree after delete
 
            2

@@ -36,7 +36,8 @@ def merge(lst1, lst2, reverse):
         j += 1
     return combined
 
-def merge_sort(lst: list, reverse: bool=False):
+
+def merge_sort(lst: list, reverse: bool = False):
     """Sort a list using merge sort algorithm"""
     # base case
     if len(lst) == 1:

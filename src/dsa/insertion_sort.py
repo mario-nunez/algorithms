@@ -10,7 +10,7 @@ OPS = {
 }
 
 
-def insertion_sort(lst: list, reverse: bool=False):
+def insertion_sort(lst: list, reverse: bool = False):
     """Sort a list using insertion sort algorithm"""
     if reverse is True:
         op_order = ">"

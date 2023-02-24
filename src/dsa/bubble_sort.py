@@ -10,7 +10,7 @@ OPS = {
 }
 
 
-def bubble_sort(lst: list, reverse: bool=False):
+def bubble_sort(lst: list, reverse: bool = False):
     """Sort a list using bubble sort algorithm"""
     if reverse is True:
         op_order = "<"

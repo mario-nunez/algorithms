@@ -17,6 +17,12 @@ def test_hash_table_initialization():
     assert result_data_map_values == expected_result_data_map_values
 
 
+@pytest.mark.xfail
+def test_hash_table_wrong_initialization_list():
+    """Test hash table wrong initializacion using a list"""
+    HashTable([1, 2, 3])
+
+
 def test_hash_table_set_item():
     """Test hash table set item method"""
     expected_result_data_map_indexes = list(range(7))
@@ -57,7 +63,7 @@ def test_hash_table_keys():
     ht.set_item('cat', 5)
     ht.set_item('dog', 6)
     ht.set_item('house', 7)
-    result_keys =  ht.keys()
+    result_keys = ht.keys()
     assert result_keys == expected_result_keys
 
 

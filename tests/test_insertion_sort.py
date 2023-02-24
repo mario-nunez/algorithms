@@ -22,10 +22,10 @@ def test_insertion_sort_desc():
 @pytest.mark.xfail
 def test_insertion_sort_wrong_list():
     """Test insertion sort method with wrong list"""
-    result = insertion_sort([1, 'hi'])
+    insertion_sort([1, 'hi'])
 
 
 @pytest.mark.xfail
 def test_insertion_sort_wrong_call():
     """Test insertion sort method with wrong call"""
-    result = insertion_sort(1)
+    insertion_sort(1)

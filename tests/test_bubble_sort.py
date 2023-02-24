@@ -22,10 +22,10 @@ def test_bubble_sort_desc():
 @pytest.mark.xfail
 def test_bubble_sort_wrong_list():
     """Test bubble sort method with wrong list"""
-    result = bubble_sort([1, 'hi'])
+    bubble_sort([1, 'hi'])
 
 
 @pytest.mark.xfail
 def test_bubble_sort_wrong_call():
     """Test bubble sort method with wrong call"""
-    result = bubble_sort(1)
+    bubble_sort(1)

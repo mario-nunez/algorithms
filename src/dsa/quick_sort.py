@@ -7,6 +7,7 @@ def swap(lst, idx1, idx2):
     lst[idx1] = lst[idx2]
     lst[idx2] = temp
 
+
 def pivot(lst, pivot_idx, end_idx):
     """Separate the list in greater and less than a pivot point, sort the pivot
     point and return the index of the sorted pivot point"""
@@ -20,6 +21,7 @@ def pivot(lst, pivot_idx, end_idx):
     swap(lst, pivot_idx, swap_idx)
     return swap_idx
 
+
 def quick_sort_helper(lst, first_idx, last_idx):
     """Implement quick sort algorithm"""
     # base case: left index < right index
@@ -28,6 +30,7 @@ def quick_sort_helper(lst, first_idx, last_idx):
         quick_sort_helper(lst, first_idx, pivot_idx-1)
         quick_sort_helper(lst, pivot_idx+1, last_idx)
     return lst
+
 
 def quick_sort(lst: list):
     """Sort a list using quick sort algorithm"""
